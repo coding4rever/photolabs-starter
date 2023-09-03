@@ -1,6 +1,6 @@
 import React from "react";
 
-//import "../styles/PhotoListItem.scss";
+import "../styles/PhotoListItem.scss";
 
 
 // const sampleDataForPhotoListItem = {
@@ -17,17 +17,19 @@ import React from "react";
 
 const PhotoListItem = (props) => {
   /* Insert React */
+  const { username, imageSource, id, location, profile , liked} = props;
   return (
-    <div className="photo-list__item">
-      <img className="photo-list__image" src={props.data.imageSource} alt="Photo"  />
-      <img className="photo-list__user-profile" src={props.data.profile} alt="Profile-photo"  />
-      <div className="photo-list__user-details ">
-      {props.data.username},
-      {props.data.location.city},
-      {props.data.location.country},
+    <div className ="photo-list__item">
+      <img src={imageSource} alt={`Photo by ${username}` } className = "photo-list__image"  />
+      <div className = "photo-list__user-info">
+        <h3 className = "photo-list__user-details" >{username}</h3>
+        <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
+        <p className="liked">{liked ? 'Liked' : 'Not Liked'}</p>
       </div>
+      <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile" />
     </div>
   );
 };
+
 
 export default PhotoListItem;
