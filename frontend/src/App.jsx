@@ -1,7 +1,5 @@
 import React from 'react';
 //import TopicList from 'components/TopicList';
-
-
 //import PhotoList from './components/PhotoList';
 import HomeRoute from 'routes/HomeRoute';
 

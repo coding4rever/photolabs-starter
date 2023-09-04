@@ -4,8 +4,7 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoListItem.scss";
 
 
-    const PhotoListItem = ({id, location, urls, user,liked,categories }) => {
-
+    const PhotoListItem = ({id, location, urls, user,liked }) => {
 
   const [isLiked, setIsLiked] = useState(liked);
 
@@ -20,7 +19,7 @@ import "../styles/PhotoListItem.scss";
     <div className="photo-list__user-info">
       <h3 className="photo-list__user-details">{user.username}</h3>
         <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
-        <p className="categories">{categories.join(', ')}</p>
+      
         
       </div>
     
