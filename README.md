@@ -22,3 +22,11 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+!["Screenshots] (https://github.com/coding4rever/photolabs-starter/blob/main/docs/Screenshot1.png)
+
+!["Screenshots] (https://github.com/coding4rever/photolabs-starter/blob/main/docs/Screenshot2.png)
+
+!["Screenshots] (https://github.com/coding4rever/photolabs-starter/blob/main/docs/Screenshot3.png)
+
+
