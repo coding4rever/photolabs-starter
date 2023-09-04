@@ -1,10 +1,12 @@
 import React from 'react';
-import TopicList from 'components/TopicList';
+//import TopicList from 'components/TopicList';
 
-import PhotoList from './components/PhotoList';
+
+//import PhotoList from './components/PhotoList';
+import HomeRoute from 'routes/HomeRoute';
 
 //import './styles/PhotoListItem.scss';
-import PhotoListItem from './components/PhotoListItem';
+//import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 
 
@@ -13,7 +15,7 @@ const App = () => {
   return (
     <div className='App'>
    
-     <PhotoList />
+     <HomeRoute/>
   </div>
 
   );

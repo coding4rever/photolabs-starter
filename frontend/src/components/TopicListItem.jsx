@@ -10,7 +10,7 @@ import "../styles/TopicListItem.scss";
 // };
 
 
-//const TopicListItem = () => {
+
   const TopicListItem = ({ id, title, slug, categories }) => {   
     const [selectedTopic, setSelectedTopic] = useState(slug);
 
