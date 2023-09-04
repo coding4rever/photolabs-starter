@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 //import TopicList from "./TopicList";
 //import PhotoList from "./PhotoList";
 import "../styles/TopicListItem.scss";
@@ -10,14 +10,18 @@ import "../styles/TopicListItem.scss";
 // };
 
 
-const TopicListItem = ({ title, slug, onSelectTopic }) => {
+const TopicListItem = ({ title, slug, onSelectTopic, selected }) => {
+  const [isTopicSelected, setIsTopicSelected] = useState(selected);
+
   const handleClick = () => {
+    setIsTopicSelected(!isTopicSelected);
+    console.log(slug)
     onSelectTopic(slug);
   };
   
   return (
    
-    <div className="topic-list__item" onClick={handleClick}>
+    <div className={`topic-list__item ${isTopicSelected ? 'selected' : ''}`} onClick={handleClick}>
       <span>{title}</span>
     </div>
   );
