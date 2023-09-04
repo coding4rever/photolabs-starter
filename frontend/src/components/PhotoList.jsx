@@ -21,6 +21,7 @@ const sampleDataForPhotoList = [
       profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
     },
     liked: true,
+    categories: ["People", "Travel"],
   },
   {
     id: "2",
@@ -39,6 +40,7 @@ const sampleDataForPhotoList = [
       profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
     },
     liked: true,
+    categories: ["Nature", "Travel"],
   },
   {
     id: "3",
@@ -57,6 +59,7 @@ const sampleDataForPhotoList = [
       profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
     },
     liked: true,
+    categories: ["Nature", "Travel"],
   },
 ];
 
