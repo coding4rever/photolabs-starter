@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer} from "react";
 const initialState = {
     //…rest of the state
     photoData: [],
