@@ -39,8 +39,6 @@ function reducer(state, action) {
   }
 }
 function useApplicationData() {
- 
-
   const [state,dispatch] = useReducer(reducer,initialState);
   const updateToFavPhotoIds = (photoId) => {
     if (state.favorites.includes(photoId)) {
