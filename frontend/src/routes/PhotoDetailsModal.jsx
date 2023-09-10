@@ -31,7 +31,7 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto }) => {
         {similar_photos && (
           <div className="photo-details-modal__similar-photos">
             {/* Reuse the PhotoList component to display similar photos */}
-            <h2>Similar Photos</h2>
+            <h2>Similar Photosssssssssssss</h2>
             <PhotoList photos={Object.values(similar_photos)} />
           </div>
         )}

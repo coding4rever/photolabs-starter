@@ -13,12 +13,12 @@ const PhotoListItem = ({   id, location, urls, user,liked, favorites,selectedTop
   }
   return (
  
-    <div className="photo-list__item" onClick={openModal}>
+    <div className="photo-list__item">
 
     <PhotoFavButton photoId={photo.id} favorites={favorites} toggleFavorites={toggleFavorites} selected={isLiked} onClick={handleFavIconClick}/>     
-    <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image" />
+    <img src={urls.regular} alt={`Photo by ${user.username}`} className="photo-list__image" onClick={openModal} />
     <div className="photo-list__user-info">
-      <h3 className="photo-list__user-details">{user.username}</h3>
+      <h3 className="photo-list__user-details" >{user.username}</h3>
       <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
       
     </div>   
