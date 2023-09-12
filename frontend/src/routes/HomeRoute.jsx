@@ -40,6 +40,12 @@ const HomeRoute = ({ photos, topics }) => {
     setIsModalOpen(false);
   };
   
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleFavIconClick = () => {
+   setIsLiked(!isLiked);
+  }
+
   return (
     <div className="home-route">
    <TopNavigationBar
@@ -54,6 +60,8 @@ const HomeRoute = ({ photos, topics }) => {
         toggleFavorites={toggleFavorites}
         selectedTopics={selectedTopics}
         openModal={openModal}
+        handleFavIconClick={handleFavIconClick}
+        isLiked={isLiked}
       />
       {isModalOpen && (
         <PhotoDetailsModal
@@ -61,6 +69,8 @@ const HomeRoute = ({ photos, topics }) => {
           selectedPhoto={selectedPhoto}
           favorites = {favorites} // favorites to the modal
           toggleFavorites={toggleFavorites} //pass toggleFavortes function to the modal
+          handleFavIconClick={handleFavIconClick}
+          isLiked={isLiked}
         />
       )}
     </div>

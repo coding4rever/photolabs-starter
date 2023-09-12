@@ -8,13 +8,13 @@ function PhotoFavButton({favorites, toggleFavorites, photoId}) {
     toggleFavorites(photoId)
   }
 
-  const colorCheck = favorites ? favorites.includes(photoId): false;
+  const checkFavorite = favorites ? favorites.includes(photoId): false;
 
    return (
     <div className="photo-list__fav-icon" onClick={toggleFavoritePhoto}>
       <div className="photo-list__fav-icon-svg">
         {/* Insert React */}
-        <FavIcon selected={colorCheck} />
+        <FavIcon selected={checkFavorite} />
       </div>
     </div>
   );
