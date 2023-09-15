@@ -6,12 +6,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({   id, location,   handleFavIconClick, 
   isLiked,  urls, user,liked, favorites,selectedTopics, toggleFavorites, photo, openModal}) => {
-
-//  const [isLiked, setIsLiked] = useState(liked);
-
-// const handleFavIconClick = () => {
-//  setIsLiked(!isLiked);
-// }
+    
   return (
  
     <div className="photo-list__item">

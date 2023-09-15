@@ -14,11 +14,22 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const {state} = useApplicationData();
+  // const {state} = useApplicationData();
+  const { state,
+    updateToFavPhotoIds,
+    setPhotoSelected,
+    onClosePhotoDetailsModal,
+    fetchPhotosByTopic} = useApplicationData();
+  console.log(state.photoData);
   return (
     <div className='App'>
    
-   <HomeRoute photos={state.photoData} topics={state.topicData}/>
+   {/* <HomeRoute photos={state.photoData} topics={state.topicData}/> */}
+   <HomeRoute handleSelectTopic={fetchPhotosByTopic} 
+      toggleFavorites={updateToFavPhotoIds}
+       photos={state.photoData} 
+       topics={state.topicData} 
+       favorites={state.favorites}/>
       <PhotoDetailsModal/>
   </div>
 

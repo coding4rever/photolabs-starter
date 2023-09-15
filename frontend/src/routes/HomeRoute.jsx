@@ -6,33 +6,13 @@ import PhotoDetailsModal from "./PhotoDetailsModal";
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics }) => {
-  const [favorites, setFavorites] = useState([]);
-  const [selectedTopics, setSelectedTopics] = useState([]);
+const HomeRoute = ({ photos, topics,favorites,toggleFavorites,handleSelectTopic }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleSelectTopic = (selectedTopic) => {
-    if (selectedTopics.includes(selectedTopic)) {
-      setSelectedTopics(
-        selectedTopics.filter((topic) => topic !== selectedTopic)
-      );
-      return;
-    }
-    setSelectedTopics([...selectedTopics, selectedTopic]);
-  };
-  const toggleFavorites = (photoId) => {
-    if (favorites.includes(photoId)) {
-      // Remove the photoId from favorites
-      const updatedFavorites = favorites.filter((favPhotoId) => favPhotoId !== photoId);
-      setFavorites(updatedFavorites);
-    } else {
-      // Add the photoId to favorites
-      setFavorites([...favorites, photoId]);
-    }
-  };
   const openModal = (photoId) => {
     const selectedPhoto = photos.find((photo) => photo.id === photoId);
-    setSelectedPhoto(selectedPhoto);
+    setSelectedPhoto(selectedPhoto)
+  
     setIsModalOpen(true);
   };
   const closeModal = () => {
@@ -41,28 +21,35 @@ const HomeRoute = ({ photos, topics }) => {
   };
   
   const [isLiked, setIsLiked] = useState(false);
-
+const [myTopicList, setMyTopicList] = useState("");
+console.log(myTopicList)
   const handleFavIconClick = () => {
    setIsLiked(!isLiked);
   }
+  const filteredPhotos = [];
 
+  for (const photo of photos){
+    console.log(photo)
+  }
   return (
     <div className="home-route">
    <TopNavigationBar
-        isFavPhotoExist={favorites.length > 0}
-        selectedTopics={selectedTopics}
+        isFavPhotoExist={favorites.length > 0}  
         onSelectTopic={handleSelectTopic}
         topics={topics}
+        setMyTopicList={setMyTopicList}
+
       />
       <PhotoList
         photos={photos}
         favorites={favorites}
         toggleFavorites={toggleFavorites}
-        selectedTopics={selectedTopics}
+       
         openModal={openModal}
         handleFavIconClick={handleFavIconClick}
         isLiked={isLiked}
       />
+    
       {isModalOpen && (
         <PhotoDetailsModal
           closeModal={closeModal}

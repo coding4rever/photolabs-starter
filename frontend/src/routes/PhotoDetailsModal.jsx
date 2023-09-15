@@ -11,9 +11,7 @@ const PhotoDetailsModal = ({ closeModal,  favorites, handleFavIconClick,
   }
   const { urls, user, similar_photos } = selectedPhoto;
 console.log(favorites);
-  // const handleFavIconClick = () => {
-  //   setIsLiked(!isLiked);
-  // }
+  
 
   return (
     <div className="photo-details-modal">
@@ -38,7 +36,7 @@ console.log(favorites);
           <div className="photo-details-modal__similar-photos">
             {/* Reuse the PhotoList component to display similar photos */
             }
-            <h2>Similar Photosssssssssssss</h2>
+            <h2>Similar Photosssss</h2>
             <PhotoList photos={Object.values(similar_photos)} handleFavIconClick={handleFavIconClick} favorites={favorites} toggleFavorites={toggleFavorites} isLiked={isLiked} />
           </div>
         )}

@@ -1,16 +1,17 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
 import "../styles/TopicList.scss";
-//import topics from "mocks/topics";
 
 
-const TopicList = ({topics, selectedTopics, onSelectTopic}) => {   
+
+
+const TopicList = ({topics, onSelectTopic}) => {  
   return (
     <div className="top-nav-bar__topic-list">
-     
       {topics.map(topic => (
-        <TopicListItem key={topic.id} topics={topics}selected={selectedTopics.includes(topic.slug)}
-        onSelectTopic={onSelectTopic}{...topic} />
+      
+      <TopicListItem key={topic.id} topics={topics} 
+        onSelectTopic={onSelectTopic}{...topic} openModal={() => openModal(photo.id)}/>
       ))}
     </div>
   );
