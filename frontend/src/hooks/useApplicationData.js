@@ -1,10 +1,10 @@
-import { useState, useEffect, useReducer} from "react";
+import { useState, useEffect, useReducer } from "react";
 const initialState = {
-    //…rest of the state
-    photoData: [],
-    topicData: [],
-    favorites:[]
-  }
+  //…rest of the state
+  photoData: [],
+  topicData: [],
+  favorites: [],
+};
 // Define action types
 const FAV_PHOTO_ADDED = "FAV_PHOTO_ADDED";
 const FAV_PHOTO_REMOVED = "FAV_PHOTO_REMOVED";
@@ -21,7 +21,9 @@ function reducer(state, action) {
   } else if (action.type === FAV_PHOTO_REMOVED) {
     return {
       ...state,
-      favorites: state.favorites.filter((favPhotoId) => favPhotoId !== action.payload.id)
+      favorites: state.favorites.filter(
+        (favPhotoId) => favPhotoId !== action.payload.id
+      ),
     };
   } else if (action.type === SELECT_PHOTO) {
     return { ...state, selectedPhoto: action.payload.photo };
@@ -30,46 +32,46 @@ function reducer(state, action) {
   } else if (action.type === LOAD_INITIAL_DATA) {
     // Load initial data from action.payload and update the state
     return { ...state, ...action.payload };
-} else if (action.type === SET_PHOTO_DATA) {
+  } else if (action.type === SET_PHOTO_DATA) {
     return { ...state, photoData: action.payload };
-  }  else if (action.type === SET_TOPIC_DATA) {
+  } else if (action.type === SET_TOPIC_DATA) {
     return { ...state, topicData: action.payload };
-  }
-  else {
+  } else {
     return state;
   }
 }
 function useApplicationData() {
-  const [state,dispatch] = useReducer(reducer,initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const updateToFavPhotoIds = (photoId) => {
     if (state.favorites.includes(photoId)) {
-   dispatch({type:FAV_PHOTO_REMOVED, payload: {id: photoId}});
+      dispatch({ type: FAV_PHOTO_REMOVED, payload: { id: photoId } });
     } else {
-      dispatch({type: FAV_PHOTO_ADDED, payload:{id:photoId}});
+      dispatch({ type: FAV_PHOTO_ADDED, payload: { id: photoId } });
     }
   };
 
   const setPhotoSelected = (photo) => {
-    dispatch({type:SELECT_PHOTO, payload: {photo}});
+    dispatch({ type: SELECT_PHOTO, payload: { photo } });
   };
 
   const onClosePhotoDetailsModal = () => {
-    dispatch({type: CLOSE_PHOTO_MODAL});
+    dispatch({ type: CLOSE_PHOTO_MODAL });
   };
   const fetchPhotosByTopic = (topicId) => {
+    console.log("topic", topicId);
     return fetch(`/api/topics/photos/${topicId}`)
-      .then(response => response.json())
-      .then(data =>dispatch({ type: SET_PHOTO_DATA, payload: data }));
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: SET_PHOTO_DATA, payload: data }));
   };
 
   // Load initial data from API
   useEffect(() => {
-   fetch('/api/photos')
-     .then(response => response.json())
-     .then(data =>dispatch({ type: SET_PHOTO_DATA, payload: data }))
-     fetch('/api/topics')
-     .then(response => response.json())
-     .then(data =>dispatch({ type: SET_TOPIC_DATA, payload: data }))
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: SET_PHOTO_DATA, payload: data }));
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: SET_TOPIC_DATA, payload: data }));
   }, []);
 
   return {
@@ -77,7 +79,7 @@ function useApplicationData() {
     fetchPhotosByTopic,
     updateToFavPhotoIds,
     setPhotoSelected,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
   };
 }
 

@@ -1,38 +1,31 @@
-import React from 'react';
-//import TopicList from 'components/TopicList';
-//import PhotoList from './components/PhotoList';
-import HomeRoute from 'routes/HomeRoute';
+import React from "react";
 
-//import './styles/PhotoListItem.scss';
-//import PhotoListItem from './components/PhotoListItem';
-import './App.scss';
+import HomeRoute from "routes/HomeRoute";
 
-//import photos from 'mocks/photos';
-//import topics from 'mocks/topics';
-import useApplicationData from 'hooks/useApplicationData';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import "./App.scss";
+import useApplicationData from "hooks/useApplicationData";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  // const {state} = useApplicationData();
-  const { state,
+  const {
+    state,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
-    fetchPhotosByTopic} = useApplicationData();
+    fetchPhotosByTopic,
+  } = useApplicationData();
   console.log(state.photoData);
   return (
-    <div className='App'>
-   
-   {/* <HomeRoute photos={state.photoData} topics={state.topicData}/> */}
-   <HomeRoute handleSelectTopic={fetchPhotosByTopic} 
-      toggleFavorites={updateToFavPhotoIds}
-       photos={state.photoData} 
-       topics={state.topicData} 
-       favorites={state.favorites}/>
-      <PhotoDetailsModal/>
-  </div>
-
+    <div className="App">
+      <HomeRoute
+        handleSelectTopic={fetchPhotosByTopic}
+        toggleFavorites={updateToFavPhotoIds}
+        photos={state.photoData}
+        topics={state.topicData}
+        favorites={state.favorites}
+      />
+      <PhotoDetailsModal />
+    </div>
   );
 };
 

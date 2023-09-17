@@ -11,7 +11,7 @@ const PhotoList = ({
   isLiked,
   toggleFavorites,
   selectedTopics,
-  openModal=null,
+  openModal = null,
 }) => {
   return (
     <ul className="photo-list">
