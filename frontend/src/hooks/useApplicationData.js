@@ -58,7 +58,6 @@ function useApplicationData() {
     dispatch({ type: CLOSE_PHOTO_MODAL });
   };
   const fetchPhotosByTopic = (topicId) => {
-    console.log("topic", topicId);
     return fetch(`/api/topics/photos/${topicId}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: SET_PHOTO_DATA, payload: data }));
